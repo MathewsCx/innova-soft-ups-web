@@ -20,6 +20,19 @@ Las fotografías y las fuentes tipográficas se cargan desde Unsplash y Google F
 - `styles.css`: diseño mobile-first, variables, foco visible y adaptaciones para 720 px y 1024 px.
 - `app.js`: menú móvil y validación accesible del formulario.
 - `.gitignore`: exclusiones para archivos del sistema, secretos locales y artefactos de dependencias.
+- `api/`: backend REST independiente para la Tarea de la Unidad 2; no se publica como parte del sitio estático.
+
+## API de la Unidad 2
+
+El backend de gestión de tareas académicas está en [`api/`](./api/README.md). Utiliza Node.js 20 o posterior, Express, Socket.IO y SQLite. Para instalarlo y ejecutarlo, abre PowerShell desde la carpeta `api`:
+
+```powershell
+npm install
+npm test
+npm start
+```
+
+La API escucha en `http://localhost:3000`. Las instrucciones de instalación, rutas, ejemplos JSON, eventos de Socket.IO y colección de Postman están documentados en el README de la API. La base SQLite y sus archivos temporales se guardan localmente y están excluidos de Git.
 
 ## Antes de entregar
 
@@ -41,7 +54,7 @@ El repositorio público está en https://github.com/MathewsCx/innova-soft-ups-we
 
 ## Publicación en GitHub
 
-El repositorio está conectado al remoto `origin`. El workflow `.github/workflows/deploy-pages.yml` publica el contenido estático del proyecto al subir cambios a `main`. GitHub Pages debe tener configurado **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+El repositorio está conectado al remoto `origin`. El workflow `.github/workflows/deploy-pages.yml` publica únicamente `index.html`, `styles.css` y `app.js` al subir cambios a `main`; la API no se despliega en GitHub Pages. GitHub Pages debe tener configurado **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
 ```powershell
 git add .

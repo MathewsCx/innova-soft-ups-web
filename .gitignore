@@ -3,6 +3,16 @@ Thumbs.db
 desktop.ini
 .env
 .env.*
+!.env.example
 node_modules/
 dist/
 evidencias/
+api/database/*.sqlite
+api/database/*.sqlite-shm
+api/database/*.sqlite-wal
+
+/Informe_Tecnico_Unidad_2.docx
+/Informe_Tecnico_Unidad_2.pdf
+/Ramos_Paul_AplWeb_U1.docx
+/Ramos_Paul_AplWeb_U1.pdf
+/~$*.docx

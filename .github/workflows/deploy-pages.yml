@@ -25,10 +25,14 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Prepare static site
+        run: |
+          mkdir -p "$RUNNER_TEMP/innova-soft-site"
+          cp index.html styles.css app.js "$RUNNER_TEMP/innova-soft-site/"
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: ${{ runner.temp }}/innova-soft-site
 
   deploy:
     needs: build
