@@ -111,3 +111,11 @@ Socket.IO acepta los orígenes definidos por `CLIENT_ORIGINS`. Al conectarse, el
 `npm test` levanta un servidor HTTP y Socket.IO con una base SQLite temporal en memoria. Comprueba los códigos HTTP, respuestas de error, validación, operaciones CRUD, filtros, ETag y conflictos, archivado, subida y descarga de archivos, rechazo de formatos falsos, límite de tamaño, CORS y eventos en tiempo real.
 
 Para reproducir solicitudes manualmente, importa `postman/Unidad2.postman_collection.json` en Postman. Las pruebas automatizadas no requieren credenciales ni una base de datos persistente. Al ejecutar el servidor normal, la base real permanece en `database/database.sqlite`, excluida del repositorio.
+
+Para comprobar el servidor y la base SQLite local con solicitudes HTTP reales, inicia la API con `npm start` en una terminal y ejecuta el siguiente comando desde la raíz del repositorio en otra terminal de PowerShell:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\api\scripts\smoke-test.ps1
+```
+
+La comprobación consulta la salud, crea una tarea temporal, la consulta, actualiza, archiva, restaura y elimina; por último verifica que ya no exista. Si ocurre un error después de crearla, intenta eliminar el registro temporal antes de terminar. No agrega datos de demostración permanentes. Para usar otro servidor local, define `API_BASE_URL` antes de ejecutar el script.

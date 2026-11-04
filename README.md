@@ -34,6 +34,12 @@ npm start
 
 La API escucha en `http://localhost:3000`. Las instrucciones de instalación, rutas, ejemplos JSON, eventos de Socket.IO y colección de Postman están documentados en el README de la API. La base SQLite y sus archivos temporales se guardan localmente y están excluidos de Git.
 
+Con el servidor iniciado, la prueba funcional contra la API y SQLite locales se ejecuta en otra terminal de PowerShell desde la raíz del repositorio:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\api\scripts\smoke-test.ps1
+```
+
 ## Antes de entregar
 
 - Comprobar que termine correctamente el despliegue de GitHub Pages y abrir la URL de demostración.
