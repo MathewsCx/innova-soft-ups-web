@@ -19,8 +19,21 @@ Las fotografías y las fuentes tipográficas se cargan desde Unsplash y Google F
 - `index.html`: contenido, navegación y formulario.
 - `styles.css`: diseño mobile-first, variables, foco visible y adaptaciones para 720 px y 1024 px.
 - `app.js`: menú móvil y validación accesible del formulario.
+- `unidad3/`: SPA instalable en Vue 3 para gestionar tareas con la API REST de la Unidad 2.
 - `.gitignore`: exclusiones para archivos del sistema, secretos locales y artefactos de dependencias.
 - `api/`: backend REST independiente para la Tarea de la Unidad 2; no se publica como parte del sitio estático.
+
+## Aplicación de la Unidad 3
+
+La SPA de Vue 3 se publica en [`/unidad3/`](./unidad3/) y conserva el sitio principal. Para ejecutarla contra la API REST incluida:
+
+1. En una terminal, inicia la API desde `api/` con `npm start`.
+2. En otra terminal, inicia la interfaz desde `unidad3/` con `npm run dev`.
+3. Abre la URL local que muestra Vite.
+
+La interfaz centraliza las solicitudes HTTP y la validación de respuestas, cancela consultas anteriores al cambiar filtros y usa `If-Match` al editar para detectar actualizaciones concurrentes. El service worker almacena solo los archivos estáticos de la aplicación; las solicitudes y los datos de la API no se guardan en caché.
+
+Desde `unidad3/`, ejecuta `npm test` y `npm run build` para verificar la integración y generar la versión de producción. En GitHub Pages se publica la SPA estática, pero la API de desarrollo no se despliega allí; para habilitar operaciones en la demo pública se debe configurar `VITE_API_BASE_URL` con una API accesible por HTTPS y con CORS autorizado para el dominio.
 
 ## API de la Unidad 2
 

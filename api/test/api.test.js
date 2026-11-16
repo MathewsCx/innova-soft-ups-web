@@ -95,6 +95,15 @@ test("expone salud, protección HTTP y respuestas JSON uniformes", async () => {
         "http://localhost:8000"
     );
 
+    const viteOrigin = await fetch(`${baseUrl}/api/health`, {
+        headers: { Origin: "http://127.0.0.1:5173" }
+    });
+    assert.equal(viteOrigin.status, 200);
+    assert.equal(
+        viteOrigin.headers.get("access-control-allow-origin"),
+        "http://127.0.0.1:5173"
+    );
+
     const missing = await fetch(`${baseUrl}/api/no-existe`);
     assert.equal(missing.status, 404);
     assert.deepEqual(await missing.json(), {
